@@ -24,7 +24,7 @@ os.environ['OPENAI_API_KEY'] = os.environ.get("OPENAI_API_KEY")
 
 @st.cache_resource
 def init_model():
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.1)
     return llm
 model = init_model()
 
@@ -42,8 +42,7 @@ def init_retriever():
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
     splits = text_splitter.split_documents(data)
     vectorstore = Chroma.from_documents(documents=splits, embedding=OpenAIEmbeddings())
-    retriever=vectorstore.as_retriever(search_type="similarity_score_threshold", search_kwargs={
-                              'score_threshold': 0.5})
+    retriever = vectorstore.as_retriever()
     return retriever
 retriever = init_retriever()
 
