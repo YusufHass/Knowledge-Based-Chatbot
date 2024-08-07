@@ -140,7 +140,9 @@ if user_input := st.chat_input("Say something"):
     )["answer"]
 
     # Add assistant response to chat history
+    st.write(response)
     response.replace("$", "\$")
+    st.write(response)
     st.session_state.messages.append({"role": "assistant", "content": response})
 
 display_messages()
