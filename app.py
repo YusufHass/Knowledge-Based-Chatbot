@@ -24,7 +24,7 @@ os.environ['OPENAI_API_KEY'] = os.environ.get("OPENAI_API_KEY")
 
 @st.cache_resource
 def init_model():
-    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.1)
+    llm = ChatOpenAI(model="gpt-4o-mini", temperature=0)
     return llm
 model = init_model()
 
