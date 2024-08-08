@@ -111,7 +111,7 @@ conversational_rag_chain = RunnableWithMessageHistory(
     output_messages_key="answer",
 )
 
-st.title("Knowledge Bot")
+st.title("DOE Procurement Bot")
 
 def display_messages():
 
